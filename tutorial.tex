@@ -172,9 +172,11 @@ Included below are hints, including screenshots accomplishing many of the tasks 
 \begin{enumerate}
     \item \textbf{If you get an error while configuring or compiling the library:}
     \begin{itemize}
+        \item If the error says CMake command not found, you need to install CMake.
         \item This may be due to an old cache.  Try removing everything from within the build directory, and then rerun your configure and compile commands.
         \item An error during the command `cmake ..` means there is an issue with your configuration.  Make sure you are running this command from the build directory and that the CMakeLists.txt file is in the parent directory.  If you still see an error, double check step 2.7.
         \item An error during the command `make` means there is an issue compiling your code.  Make sure you have a C/C++ compiler installed on your computer.  If you still see an error, double check step 2.6.
+        \item If you are Windows, check the CMake on Windows bullet (\#6).
     \end{itemize}
 
     \item \textbf{If you get an error while running `make test`:}
