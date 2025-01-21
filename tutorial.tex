@@ -226,6 +226,24 @@ Included below are hints, including screenshots accomplishing many of the tasks 
         \item To fix this, you can create a new branch and merge it into the correct branch, as shown in the following image.\\
         \includegraphics[width=0.75\textwidth]{figs/fix_detached.png}
     \end{enumerate}
+
+    \item \textbf{CMake on Windows:} If you are using a Windows machine and get an error when configuring with `cmake ..`, try the following:
+    \begin{enumerate}
+        \item If you see an error `nmake' `-?' failed with: no such file or directory, CMake is unable to find the Make program on your computer.  Try adding the following between `cmake' and `..':\begin{verbatim}    
+        -DCMAKE\_MAKE\_PROGRAM=mingw32-make -G "MinGW Makefiles"
+        \end{verbatim}
+        \item If you see an error `CMAKE\_CXX\_COMPILER not set', CMake is unable to determine which C compiler it should use.  Try adding the following between `cmake' and `..':\begin{verbatim}    
+        -DCMAKE\_CXX\_COMPILER=g++
+        \end{verbatim}
+        Add `DCMAKE\_CXX\_COMPILER=g++' between `cmake' and `..'
+        \item If you see an error `CMAKE\_C\_COMPILER not set', CMake is unable to determine which C compiler it should use.  Try adding the following between `cmake' and `..':\begin{verbatim}    
+        -DCMAKE\_CXX\_COMPILER=gcc
+        \end{verbatim}
+    \end{enumerate}
+    If you see all three errors above, your CMake configure line would be \begin{verbatim}
+        cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_CC_COMPILER=gcc 
+        -DCMAKE_MAKE_PROGRAM=mingw32-make -G "MinGW Makefiles" ..
+    \end{verbatim}
 \end{enumerate}
 
 \end{document}
