@@ -246,6 +246,11 @@ Included below are hints, including screenshots accomplishing many of the tasks 
         cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_CC_COMPILER=gcc 
         -DCMAKE_MAKE_PROGRAM=mingw32-make -G "MinGW Makefiles" ..
     \end{verbatim}
+
+    \item \textbf{Make on Windows} If you run into issues on Windows where the flags from the previous step allowed you to configure (CMake passed) but you get an error that `make' command not found, try the following command instead 
+    \begin{verbatim}
+        mingw32-make
+    \end{verbatim}
 \end{enumerate}
 
 \end{document}
