@@ -45,7 +45,7 @@ If at any step you run into issues or get confused, scroll to the end of this do
     \begin{verbatim}
         ls
     \end{verbatim}
-    You can enter this folder with the following command, where `foldername` is the name of your new folder.
+    You can enter this folder with the following command, where \emph{foldername} is the name of your new folder.
     \begin{verbatim}
         cd foldername
     \end{verbatim}
@@ -62,7 +62,7 @@ If at any step you run into issues or get confused, scroll to the end of this do
 CMake is a group of tools for compiling code on any given computer.  The library that you cloned in Part 1 must be compiled with CMake.  Follow the steps below to complete basic tasks with CMake.
 
 \begin{enumerate}
-    \item \textbf{Create a build folder.}  All CMake commands should be run within a build folder so that they can be easily cleaned up.  Create a new folder in the homework0 repository called 'build'
+    \item \textbf{Create a build folder.}  All CMake commands should be run within a build folder so that they can be easily cleaned up.  Create a new folder in the homework0 repository called \emph{build}
     \begin{verbatim}
         mkdir build
     \end{verbatim}
@@ -71,26 +71,26 @@ CMake is a group of tools for compiling code on any given computer.  The library
         cd build
     \end{verbatim}
 
-    \item \textbf{Configure the current CMake directory.}  Run cmake from within the build directory.  The `cmake' command takes, as input, the directory where it can find your CMakeLists.txt file, which is in the parent directory of your build folder
+    \item \textbf{Configure the current CMake directory.}  Run cmake from within the build directory.  The \emph{cmake} command takes, as input, the directory where it can find your CMakeLists.txt file, which is in the parent directory of your build folder
     \begin{verbatim}
         cmake ..
     \end{verbatim}
     
 
-    \item \textbf{Compile the codebase.} After the configuration successfully completes, you can compile the library with the command 'make'.  You should see an error that the linker cannot find the function 'return0()'.
+    \item \textbf{Compile the codebase.} After the configuration successfully completes, you can compile the library with the command \emph{make}.  You should see an error that the linker cannot find the function \emph{return0()}.
     \begin{verbatim}
         make
     \end{verbatim}
 
-    \item \textbf{Create a C or C++ file within the main repository directory.}  Leave the build directory, stepping back one folder and create a new file.  The following commands will create a new file called file.cpp, but note there are many different ways to create a new file (e.g. `vi file.cpp')
+    \item \textbf{Create a C or C++ file within the main repository directory.}  Leave the build directory, stepping back one folder and create a new file.  The following commands will create a new file called \emph{filename}.  Replace \emph{filename} with the name of your new file (you can choose anything you would like).  Note, there are many different ways to create new files, such as using \emph{vi}.
     \begin{verbatim}
         cd ..
-        touch file.cpp
+        touch filename
     \end{verbatim}
 
-    \item \textbf{Edit this File.}  Include the header file `src.hpp` and create a new method called `return0` which returns the integer 0.  Note there is no `main` method, this is a method within a library, and it has already been declared within the header file (located in the submodule folder).
+    \item \textbf{Edit this File.}  Include the header file \emph{src.hpp} and create a new method called \emph{return0} which returns the integer 0.  Note there is no \emph{main} method in this file.  This is a method within a library, which has already been declared within the header file (located in the submodule folder).
 
-    \item \textbf{Edit CMakeLists.txt.}  Open the file `CMakeLists.txt` from the main directory.  A library called `homework` is created near the bottom of this file.  Add your file to this library.
+    \item \textbf{Edit CMakeLists.txt.}  Open the file \emph{CMakeLists.txt} from the main directory.  A library called \emph{homework} is created near the bottom of this file.  Add your file to this library.
 
     \item \textbf{Reconfigure and compile the library.}  Go back into the build directory and run the configuration and compile commands again (from steps 3 and 4 above).
     \begin{verbatim}
@@ -103,20 +103,19 @@ CMake is a group of tools for compiling code on any given computer.  The library
 
 \questionpart{3: Googletest}
 
-Googletest is a testing environment, which will test your code for correctness.  These tests are provided for you, within the `tests` directory of the submodule folder.
+Googletest is a testing environment, which will test your code for correctness.  These tests are provided for you, within the \emph{tests} directory of the submodule folder.
 
 \begin{enumerate}
-    \item \textbf{Open the file `unit\_tests.cpp`.}  This file is within the `tests` folder of the provided submodule.  This a simple test written with googletest.  Make sure you can understand what is being tested in this file.
+    \item \textbf{Open the file \emph{unit\_tests.cpp}.}  This file is within the \emph{tests} folder of the provided submodule.  This a simple test written with googletest.  Make sure you can understand what is being tested in this file.
 
-    \item \textbf{Test for Correctness.}  To test that your code changes and googletest unit tests are working, go back to the build folder and recompile your code ('make').  Then, run the tests with 'make test'.  This will run my provided unit tests.  You should see tests pass.
+    \item \textbf{Test for Correctness.}  To test that your code changes and googletest unit tests are working, go back to the build folder and recompile your code.  Then, run the tests with \emph{make test}.  This will run my provided unit tests.  You should see tests pass.
     \begin{verbatim}
         cd build
         make
         make test
     \end{verbatim}
     
-
-    \item \textbf{Update Compile Script.}  Add all configuration and compilation commands to the file `compile.sh`.  This is the file that GitHub Classroom will use to compile your code.  \emph{If you need further direction on this step, check down in hints.}
+    \item \textbf{Update Compile Script.}  Add all configuration and compilation commands to the file \emph{compile.sh}, \textbf{including your submodule commands}.  This is the file that GitHub Classroom will use to compile your code.  \emph{If you need further direction on this step, check down in hints.}
 
     \item \textbf{Retest Correctness.}  Delete your build folder and instead run only the following commands from the main repository folder:
     \begin{verbatim}
