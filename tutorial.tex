@@ -51,10 +51,10 @@ If at any step you run into issues or get confused, scroll to the end of this do
     \end{verbatim}
     
     \item \textbf{Pull submodule updates.}  Initial code, configuration, and testing environments are provided for you in a separate GitHub repository, linked as a submodule.  You cannot change this code.  Make sure to pull the latest updates to this submodule with the following:
-    \begin{enumerate}
-        \item `git submodule init`
-        \item `git submodule update --remote`
-    \end{enumerate}
+    \begin{verbatim}
+        git submodule init
+        git submodule update --remote
+    \end{verbatim}
 \end{enumerate}
 
 % The \questionpart command is equivalent to \question, but labels a Part within a question
@@ -63,21 +63,41 @@ CMake is a group of tools for compiling code on any given computer.  The library
 
 \begin{enumerate}
     \item \textbf{Create a build folder.}  All CMake commands should be run within a build folder so that they can be easily cleaned up.  Create a new folder in the homework0 repository called 'build'
+    \begin{verbatim}
+        mkdir build
+    \end{verbatim}
 
-    \item \textbf{Change directory into build.}  Change the current directory to build (e.g. 'cd build')
+    \item \textbf{Change directory into build.}  Change the current directory to build \begin{verbatim}
+        cd build
+    \end{verbatim}
 
-    \item \textbf{Configure the current CMake directory.}  To configure your compilation, type 'cmake ..' from within the build directory
+    \item \textbf{Configure the current CMake directory.}  Run cmake from within the build directory.  The `cmake' command takes, as input, the directory where it can find your CMakeLists.txt file, which is in the parent directory of your build folder
+    \begin{verbatim}
+        cmake ..
+    \end{verbatim}
     
 
     \item \textbf{Compile the codebase.} After the configuration successfully completes, you can compile the library with the command 'make'.  You should see an error that the linker cannot find the function 'return0()'.
+    \begin{verbatim}
+        make
+    \end{verbatim}
 
-    \item \textbf{Create a C or C++ file within the main repository directory.}  Leave the build directory, stepping back one folder (`cd ..`) and create a new file.  
+    \item \textbf{Create a C or C++ file within the main repository directory.}  Leave the build directory, stepping back one folder and create a new file.  The following commands will create a new file called file.cpp, but note there are many different ways to create a new file (e.g. `vi file.cpp')
+    \begin{verbatim}
+        cd ..
+        touch file.cpp
+    \end{verbatim}
 
     \item \textbf{Edit this File.}  Include the header file `src.hpp` and create a new method called `return0` which returns the integer 0.  Note there is no `main` method, this is a method within a library, and it has already been declared within the header file (located in the submodule folder).
 
     \item \textbf{Edit CMakeLists.txt.}  Open the file `CMakeLists.txt` from the main directory.  A library called `homework` is created near the bottom of this file.  Add your file to this library.
 
     \item \textbf{Reconfigure and compile the library.}  Go back into the build directory and run the configuration and compile commands again (from steps 3 and 4 above).
+    \begin{verbatim}
+        cd build
+        cmake ..
+        make
+    \end{verbatim}
 \end{enumerate}
 
 
@@ -89,16 +109,21 @@ Googletest is a testing environment, which will test your code for correctness. 
     \item \textbf{Open the file `unit\_tests.cpp`.}  This file is within the `tests` folder of the provided submodule.  This a simple test written with googletest.  Make sure you can understand what is being tested in this file.
 
     \item \textbf{Test for Correctness.}  To test that your code changes and googletest unit tests are working, go back to the build folder and recompile your code ('make').  Then, run the tests with 'make test'.  This will run my provided unit tests.  You should see tests pass.
+    \begin{verbatim}
+        cd build
+        make
+        make test
+    \end{verbatim}
     
 
-    \item \textbf{Update Compile Script.}  Add all configuration and compilation commands to the file `compile.sh`.  This is the file that will GitHub Classroom will us to compile your code.
+    \item \textbf{Update Compile Script.}  Add all configuration and compilation commands to the file `compile.sh`.  This is the file that GitHub Classroom will use to compile your code.
 
     \item \textbf{Retest Correctness.}  Delete your build folder and instead run only the following commands from the main repository folder:
-    \begin{enumerate}
-        \item `sh compile.sh`
-        \item `cd build`
-        \item `make test`
-    \end{enumerate}
+    \begin{verbatim}
+        sh compile.sh
+        cd build
+        make test
+    \end{verbatim}
     You should again see that you pass the unit tests.
 \end{enumerate}
 
