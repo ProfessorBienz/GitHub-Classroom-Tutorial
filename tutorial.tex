@@ -133,20 +133,41 @@ Googletest is a testing environment, which will test your code for correctness. 
 Once all of your tests are passing, you need to push the code back to GitHub.  \textbf{For larger tasks, you should do this step even before all tasks are complete as a way to checkpoint your code.}
 
 \begin{enumerate}
-    \item \textbf{Pull Repository Updates.} The command `git pull` will pull any updates from your repository.  If your local code is not up-to-date with the online repository, you will not be able to push new changes without first pulling.
+    \item \textbf{Pull Repository Updates.} If your local code is not up-to-date with the online repository, you will not be able to push new changes without first pulling.
+    \begin{verbatim}
+        git pull
+    \end{verbatim}
 
-    \item \textbf{Check Repository Status.} The command `git status` will show which files have been changed, added, or deleted since your last pulled code.
+    \item \textbf{Check Repository Status.} This command will show which files have been changed, added, or deleted since your last pulled code.
+    \begin{verbatim}
+        git status
+    \end{verbatim}
     
     \item \textbf{Add Files.}  Any files that have been changed or added to your repository can be added with any of the following commands.  Note, this stages these changes, but they will still need to be committed and pushed before they appear in your online repository.
     \begin{enumerate}
-        \item `git add \emph{filename}`: will add the file named \emph{filename} to be committed.  Replace \emph{filename} with the name of the file that you want to add.  
-        \item `git add *`: will add all files in your current directory.
-        \item `git add -u`: will add only files that have previously been added to the repository and have since been updated.
+        \item The following will add the file named \emph{filename} to be committed.  Replace \emph{filename} with the name of the file that you want to add.  
+        \begin{verbatim}
+            git add filename
+        \end{verbatim}
+        \item The following will add all files in your current directory.
+        \begin{verbatim}
+            git add *
+        \end{verbatim}
+        \item The following will add only files that have previously been added to the repository and have since been updated.
+        \begin{verbatim}
+            git add -u
+        \end{verbatim}
     \end{enumerate}
 
-    \item \textbf{Commit Changes.}  After adding updates and new files, you need to commit these changes with `git commit -m \emph{message}` where \emph{message} describes your update.
+    \item \textbf{Commit Changes.}  After adding updates and new files, you need to commit these changes with the following. Replace \emph{message} with a description of your update.
+    \begin{verbatim}
+        git -m message
+    \end{verbatim}
 
-    \item \textbf{Push Changes.}  After an update has been committed and tagged with a message, push your changes to your online repository with `git push`.  If asked for a password, you will need to enter your GitHub authentication token again.
+    \item \textbf{Push Changes.}  After an update has been committed and tagged with a message, push your changes to your online repository.  If asked for a password, you will need to enter your GitHub authentication token again.
+    \begin{verbatim}
+        git push
+    \end{verbatim}
 
     \item \textbf{Check Repository.}  Go back to your GitHub repository and refresh the page if needed.  You should see your updated code in your repository.
 
