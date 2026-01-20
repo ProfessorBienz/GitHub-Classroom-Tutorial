@@ -4,15 +4,36 @@ on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write  
+
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@main
-      - name: Compile and Deploy
-        uses: jonhue/pubtex-action@main
+      - name: Checkout repository
+        uses: actions/checkout@main
+
+      - name: Compile LaTeX 
+        uses: xu-cheng/latex-action@v3
         with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
-          files: |
+          root_file: |
             tutorial.tex
             token.tex
+
+      # Collect PDFs into a deploy directory
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p files
+          mv tutorial.pdf files
+          mv token.pdf files
+
+      # Deploy to gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: files
