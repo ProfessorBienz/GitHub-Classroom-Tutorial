@@ -101,14 +101,14 @@ CMake is a group of tools for compiling code on any given computer.  The library
 \end{enumerate}
 
 
-\questionpart{3: Googletest}
+\questionpart{3: CMake Testing}
 
-Googletest is a testing environment, which will test your code for correctness.  These tests are provided for you, within the \emph{tests} directory of the submodule folder.
+Ctest is a testing environment, which will test your code for correctness.  These tests are provided for you, within the \emph{tests} directory of the submodule folder.
 
 \begin{enumerate}
-    \item \textbf{Open the file \emph{unit\_tests.cpp}.}  This file is within the \emph{tests} folder of the provided submodule.  This a simple test written with googletest.  Make sure you can understand what is being tested in this file.
+    \item \textbf{Open the file \emph{unit\_tests.cpp}.}  This file is within the \emph{tests} folder of the provided submodule.  This a simple test that checks correctness of the method you created.  If your method does not return 0 as expected, this test will print to standard error, causing the test to fail.  Make sure you can understand what is being tested in this file.
 
-    \item \textbf{Test for Correctness.}  To test that your code changes and googletest unit tests are working, go back to the build folder and recompile your code.  Then, run the tests with \emph{make test}.  This will run my provided unit tests.  You should see tests pass.
+    \item \textbf{Test for Correctness.}  To test that your code changes and the unit tests are working, go back to the build folder and recompile your code.  Then, run the tests with \emph{make test}.  This will run my provided unit tests.  You should see tests pass.
     \begin{verbatim}
         cd build
         make
